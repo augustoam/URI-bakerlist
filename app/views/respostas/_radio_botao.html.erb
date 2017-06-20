@@ -1,0 +1,6 @@
+<div class="checkbox">
+	<%= f.collection_radio_buttons :radio_buttons, montar_radio_buttons(respostas), :first, :last %>
+	<%= f.hidden_field :status, value: params[:status] %>
+  <%= f.hidden_field :empresas, value: params[:empresas] %>
+	<%= f.hidden_field :respondido, value: true %>
+</div>

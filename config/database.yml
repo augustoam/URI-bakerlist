@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  pool: 8
+
+development:
+  <<: *default
+  host: localhost
+  database: servidor_wonder
+
+test:
+  <<: *default
+  database: servidor_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+production:
+  <<: *default
+  database: servidor_production

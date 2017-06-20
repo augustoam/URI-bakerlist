@@ -1,0 +1,6 @@
+<% respostas.each do |resposta| %>  
+  <%= f.hidden_field :respondido, value: true %>
+  <%= f.hidden_field :status, value: params[:status] %>
+  <%= f.hidden_field :empresas, value: params[:empresas] %>
+  <%= f.submit resposta["label"], value: resposta["value"], class: "btn btn-success" %>
+<% end %>

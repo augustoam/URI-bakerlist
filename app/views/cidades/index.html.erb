@@ -1,0 +1,23 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Cidades <% if @cidades.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
+      <%= link_to 'Nova Cidade', new_cidade_path, class: "btn-sm btn-primary pull-right" %>
+    </div>
+    <% @cidades.each do |cidade| %>
+      <div class="ibox-content" data-href="<%= cidade_path(cidade)  %>" %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= bs_label "##{cidade.id}", class: :primary %>
+            <b><%= cidade.nome %> - <%= cidade.uf %></b>
+            <small class="stats-label text-muted" style="float: right; text-align: right">
+              em <%= time_ago_in_words(cidade.created_at) %><br>
+              <br>
+              <%= cidade.created_at.strftime("%d/%m/%Y %H:%M") %>
+            </small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

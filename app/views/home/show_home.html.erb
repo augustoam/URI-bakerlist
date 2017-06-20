@@ -1,0 +1,18 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Categorias <% if @categoria.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
+      
+    </div>
+    <% @categoria.each do |categoria| %>
+      <div class="ibox-content" data-href="<%= itens_home_index_path(categoria_id: categoria.id)  %>" %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= bs_label "##{categoria.id}", class: :primary %>
+            <b><%= categoria.descricao %></b>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

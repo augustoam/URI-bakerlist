@@ -1,0 +1,180 @@
+//Ajuste para o select2 não ficar "dentro" de um input text
+
+.select2-container {
+  padding: 0;
+
+  a.select2-choice {
+    height: 34px;
+  }
+}
+
+// select2 inspinia theme
+
+.select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
+  background-color: #1ab394 !important;
+}
+
+.select2-container--bootstrap .select2-selection {
+  border-color: #e5e6e7 !important;
+}
+
+.select2-container--bootstrap.select2-container--focus .select2-selection,
+.select2-container--bootstrap.select2-container--open .select2-selection {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  transition: border-color none !important;
+  -webkit-transition: border-color none !important;
+  -moz-transition: border-color none !important;
+  -o-transition: border-color none !important;
+  border-color: #1ab394 !important;
+  border-radius: 1px !important;
+}
+
+.select2-container--bootstrap .select2-selection {
+  border-radius: 1px !important;
+}
+
+.select2-search.select2-search--inline {
+  input.select2-search__field {
+    width: 100% !important;
+  }
+}
+
+// mostrar todo o placeholder em modo multiple
+li:first-child.select2-search.select2-search--inline {
+  width: 100%;
+}
+
+.has-error .select2-dropdown,
+.has-error .select2-selection {
+  border-color: #ED5565 !important;
+}
+
+.select2-container--bootstrap .select2-dropdown {
+  border-color: #1ab394 !important;
+}
+
+// efeito do pace.js em css
+
+#page-wrapper {
+  -webkit-transition: margin-left 0.4s ease-out;
+  -moz-transition: margin-left 0.4s ease-out;
+  -o-transition: margin-left 0.4s ease-out;
+  transition: margin-left 0.4s ease-out;
+}
+
+.navbar-default.navbar-static-side {
+  -webkit-transition: width 0.4s ease-out;
+  -moz-transition: width 0.4s ease-out;
+  -o-transition: width 0.4s ease-out;
+  transition: width 0.4s ease-out;
+}
+
+// mini navbar span titles
+
+.mini-navbar .sidebar-collapse {
+  a {
+    padding: 7px 2px !important;
+
+    i {
+      margin-right: 0;
+    }
+
+    .nav-label {
+      display: block !important;
+      font-size: 0.65em;
+      padding: 0 !important;
+      text-align: center;
+      font-weight: normal;
+    }
+  }
+
+  & > ul > li > a {
+    /* Centralizado apenas no primeiro nível */
+    text-align: center;
+  }
+}
+
+// mini navbar span oportunidades length
+
+body.mini-navbar .navbar-static-side {
+  width: 80px;
+}
+
+body.mini-navbar #page-wrapper {
+  margin-left: 80px;
+}
+
+body.mini-navbar .nav-second-level {
+  left: 76px !important;
+}
+
+.logo-element .img-responsive {
+  display: initial;
+}
+
+.turbolinks-progress-bar {
+  background-color: #1ab394;
+  height: 2px;
+}
+
+.checkbox label {
+  padding-left: 5px;
+}
+
+// impedir resize de textarea
+
+textarea {
+  resize: vertical;
+}
+
+// destacar links e pagina atual
+
+ol.breadcrumb {
+  li:last-child {
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.onoffswitch-inner:after {
+  content: ' ';
+}
+
+.onoffswitch-inner:before {
+  content: ' ';
+}
+
+.setings-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e7eaec;
+}
+
+div[href]:hover {
+  cursor: pointer;
+}
+
+.panel-inspinia {
+  border-radius: 0 !important;
+
+  .panel-heading {
+    background-color: #FFF;
+    color: #676a6c;
+  }
+}
+
+body.fixed-nav.fixed-nav-basic.mini-navbar .navbar-fixed-top {
+  left: 80px;
+}
+
+.navbar-fixed-top {
+  transition-timing-function: ease-out;
+}
+
+.dropdown-menu-right {
+  right: 0;
+  left: auto;
+}

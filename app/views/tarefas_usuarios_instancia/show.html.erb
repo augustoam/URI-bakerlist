@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tarefa Id:</strong>
+  <%= @tarefa_usuario_instancia.tarefa_id %>
+</p>
+
+<p>
+  <strong>Usuario Instancia Id:</strong>
+  <%= @tarefa_usuario_instancia.usuario_instancia_id %>
+</p>
+
+<p>
+  <strong>Respondido:</strong>
+  <%= @tarefa_usuario_instancia.respondido %>
+</p>
+
+<p>
+  <strong>Conteudo Resposta:</strong>
+  <%= @tarefa_usuario_instancia.conteudo_resposta %>
+</p>
+
+<%= link_to 'Edit', edit_tarefa_usuario_instancia_path(@tarefa_usuario_instancia), class: "btn btn-primary"  %> 
+<%= link_to 'Back', tarefas_usuarios_instancia_path, class: "btn btn-default"  %>

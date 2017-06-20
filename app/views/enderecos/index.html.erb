@@ -1,0 +1,23 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Endereços <% if @enderecos.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
+      <%= link_to 'Novo Endereço', new_endereco_path, class: "btn-sm btn-primary pull-right" %>
+    </div>
+    <% @enderecos.each do |endereco| %>
+      <div class="ibox-content" data-href="<%= endereco_path(endereco)  %>" %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= bs_label "##{endereco.id}", class: :primary %>
+            <b><%= endereco.endereco %> - <%= endereco.numero %></b>
+            <small class="stats-label text-muted" style="float: right; text-align: right">
+              em <%= time_ago_in_words(endereco.created_at) %><br>
+              <br>
+              <%= endereco.created_at.strftime("%d/%m/%Y %H:%M") %>
+            </small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

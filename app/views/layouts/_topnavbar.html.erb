@@ -1,0 +1,31 @@
+<div class="row border-bottom">
+  <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary mini-navbar-cookie">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    
+    <% if current_usuario.present? %>
+      <ul class="nav navbar-top-links navbar-right">
+        <li class="hidden-xs hidden-sm">
+          <span class="m-r-sm text-muted welcome-message"> <%= "Bem-vindo, #{current_usuario.email}" %></span>
+        </li>
+        <li class='pull-right'>
+          <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-ellipsis-v"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-top-nav-right animated fadeInRight">
+            <li>
+             
+            </li>
+            <li>
+              <%= link_to('Sair', destroy_usuario_session_path, :method => :delete)  %>  
+            </li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+  </nav>
+</div>
+

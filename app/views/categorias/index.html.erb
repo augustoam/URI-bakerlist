@@ -1,0 +1,23 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Categorias <% if @categoria.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
+      <%= link_to 'Nova Categoria', new_categoria_path, class: "btn-sm btn-primary pull-right" %>
+    </div>
+    <% @categoria.each do |categoria| %>
+      <div class="ibox-content" data-href="<%= categoria_path(categoria)  %>" %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= bs_label "##{categoria.id}", class: :primary %>
+            <b><%= categoria.descricao %></b>
+            <small class="stats-label text-muted" style="float: right; text-align: right">
+              em <%= time_ago_in_words(categoria.created_at) %><br>
+              <br>
+              <%= categoria.created_at.strftime("%d/%m/%Y %H:%M") %>
+            </small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

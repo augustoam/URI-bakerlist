@@ -1,0 +1,37 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Item  <%= "##{@item.id}" %> </h5>
+    </div>
+    <div class="ibox-content">
+      <p>
+        <strong>Descrição:</strong>
+        <%= @item.descricao %>
+      </p>
+
+      <p>
+        <strong>Preço:</strong>
+        <%= @item.preco %>
+      </p>
+
+      <p>
+        <strong>Referência:</strong>
+        <%= @item.unidade.descricao %>
+      </p>
+
+      <p>
+        <strong>Observações:</strong>
+        <%= @item.categoria.descricao %>
+      </p>
+
+      <div class="hr-line-dashed"></div>
+      <%= link_to 'Voltar', itens_path, class: "btn btn-default pull-left" %>
+      <div class="pull-right"> 
+        <%= link_to 'Excluir', @item,  method: :delete, data: {confirm: "Você tem certeza?"}, class: "btn btn-danger" %>
+        <%= link_to 'Editar', edit_item_path(@item), class: "btn btn-primary"%> 
+      </div>
+      <br>
+      <br>
+    </div>  
+  </div>
+</div>

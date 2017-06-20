@@ -1,0 +1,13 @@
+<p><%= t(".forgot_your_password") %></p>
+
+<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :email, placeholder: 'email', class: 'form-control set-focus', required:"" %>
+  </div>
+	
+	<div class="form-group">
+    <%= f.submit t(".send_me_reset_password_instructions"), class: 'btn btn-primary block full-width ' %>
+  </div>
+<% end %>
+
+<%= render "usuarios/shared/links" %>

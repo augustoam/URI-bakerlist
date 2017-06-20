@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tarefas Usuarios Instancia</h1>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Instancia Id</th>
+      <th>Usuario Id</th>
+      <th>Respondido</th>
+      <th>Identificador Tarefa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tarefa_usuario_instancia.each do |tarefa_usuario_instancia| %>
+      <tr>
+        <td><%= tarefa_usuario_instancia.tarefa_id %></td>
+        <td><%= tarefa_usuario_instancia.usuario_instancia_id %></td>
+        <td><%= tarefa_usuario_instancia.respondido %></td>
+        <td><%= tarefa_usuario_instancia.tarefa.identificador_tarefa %></td>
+        <td><%= link_to 'Show', tarefa_usuario_instancia %></td>
+        <td><%= link_to 'Edit', edit_tarefa_usuario_instancia_path(tarefa_usuario_instancia) %></td>
+        <td><%= link_to 'Destroy', tarefa_usuario_instancia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

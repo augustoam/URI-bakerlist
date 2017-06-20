@@ -1,0 +1,28 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Cidade  <%= "##{@cidade.id}" %> </h5>
+    </div>
+    <div class="ibox-content">
+			<p>
+			  <strong>Descricao:</strong>
+			  <%= @cidade.nome %>
+			</p>
+			<p>
+			  <strong>Estado:</strong>
+			  <%= @cidade.uf %>
+			</p>
+
+			<div class="hr-line-dashed"></div>
+			<%= link_to 'Voltar', cidades_path, class: "btn btn-default pull-left" %>
+			<div class="pull-right"> 
+				<%= link_to 'Excluir', @cidade,  method: :delete, data: {confirm: "Você tem certeza?"}, class: "btn btn-danger" %>
+				<%= link_to 'Editar', edit_cidade_path(@cidade), class: "btn btn-primary"%>
+			</div> 
+			<br>
+			<br>
+		</div>	
+	</div>
+</div>
+
+

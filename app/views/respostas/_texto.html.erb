@@ -1,0 +1,7 @@
+<% respostas.each do |resposta| %>  
+  <%= f.input :texto %>
+  <%= f.hidden_field :status, value: params[:status] %>
+  <%= f.hidden_field :empresas, value: params[:empresas] %>
+  <%= f.hidden_field :respondido, value: true %>
+<% end %>
+

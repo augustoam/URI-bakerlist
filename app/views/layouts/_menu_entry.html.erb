@@ -1,0 +1,78 @@
+<li>
+  <%= link_to root_path do %>
+    <i class="fa fa-home"></i>
+    <span class="nav-label">Início</span>
+  <% end %>
+</li>
+
+<% if current_usuario.admin? %>
+  <li>
+    <%= link_to categorias_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Categorias</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if current_usuario.admin? %>
+  <li>
+    <%= link_to formas_pagamentos_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Formas de Pagamento</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if current_usuario.admin? %>
+  <li>
+    <%= link_to cidades_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Cidades</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if !current_usuario.admin? %>
+  <li>
+    <%= link_to enderecos_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Endereços</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if current_usuario.admin? %>
+  <li>
+    <%= link_to unidades_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Unidades</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if current_usuario.admin? %>
+  <li>
+    <%= link_to pedidos_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Pedidos</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if current_usuario.admin? %>
+  <li>
+    <%= link_to itens_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Itens</span>
+    <% end %>
+  </li>
+<% end %>
+
+<% if !current_usuario.admin? %>
+  <li>
+    <%= link_to carrinho_home_index_path do %>
+      <i class="fa fa-home"></i>
+      <span class="nav-label">Carrinho</span>
+    <% end %>
+  </li>
+<% end %>

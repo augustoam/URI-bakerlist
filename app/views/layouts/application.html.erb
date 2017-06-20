@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Server</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+    <!-- Navigation -->
+      <% if current_usuario.present? %>
+        <%= render 'layouts/navigation' %>
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg">
+          <!-- Page wrapper -->
+          <%= render 'layouts/topnavbar' %>
+          <!-- Notifications -->
+          <% if notice.present? %>
+            <br>
+            <div class="panel panel-primary">
+              <div class="panel-heading">Notificação</div>
+              <div class="panel-body"><%= notice %></div>
+            </div>
+          <% end %>
+          <% if alert.present? %>
+            <br>
+            <div class="panel panel-danger">
+              <div class="panel-heading">Alerta</div>
+              <div class="panel-body"><%= alert %></div>
+            </div>
+          <% end %>
+
+          <%= yield %>
+          <!-- Footer -->
+          <%= render 'layouts/footer' %>
+        </div>
+        <!-- End page wrapper-->
+      <% else %>
+        <%=  link_to "Cadastrar", new_usuario_registration_path %>
+        <%= link_to "Entrar", new_usuario_session_path %>
+      <% end %>
+    </div>
+    <!-- End wrapper-->
+  </body>
+</html>

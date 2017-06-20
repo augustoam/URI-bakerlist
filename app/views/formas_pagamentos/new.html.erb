@@ -1,0 +1,20 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Nova Forma de Pagamento </h5>
+    </div>
+	  <%= simple_form_for(@forma_pagamento) do |f| %>
+	  	<div class="ibox-content">
+        <div class="content">
+			    <%= f.input :descricao, label: 'Descrição' %>
+			    <div class="hr-line-dashed"></div>
+			    <%= link_to 'Voltar', formas_pagamentos_path, class: "btn btn-default pull-left" %>
+			    <%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
+			    <br>
+			    <br>
+	  		</div>
+	  	</div>
+		<% end %>
+  </div>
+</div>
+

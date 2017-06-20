@@ -1,0 +1,43 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Endereço  <%= "##{@endereco.id}" %> </h5>
+    </div>
+    <div class="ibox-content">
+      <p>
+        <strong>Endereço:</strong>
+        <%= @endereco.endereco %>
+      </p>
+
+      <p>
+        <strong>Número:</strong>
+        <%= @endereco.numero %>
+      </p>
+
+      <p>
+        <strong>Referência:</strong>
+        <%= @endereco.referencia %>
+      </p>
+
+      <p>
+        <strong>Observações:</strong>
+        <%= @endereco.obs %>
+      </p>
+
+      <p>
+        <strong>CEP:</strong>
+        <%= @endereco.cep %>
+      </p>
+
+      <p>
+        <strong>Cidade:</strong>
+        <%= @endereco.cidade.nome %> - <%= @endereco.cidade.uf %>
+      </p>
+      <div class="hr-line-dashed"></div>
+      <%= link_to 'Voltar', enderecos_path, class: "btn btn-default pull-left" %>
+      <%= link_to 'Editar', edit_endereco_path(@endereco), class: "btn btn-primary pull-right"%> 
+      <br>
+      <br>
+    </div>  
+  </div>
+</div>

@@ -1,0 +1,22 @@
+
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Pedidos <% if @pedidos.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
+    </div>
+    <% @pedidos.each do |pedido| %>
+      <div class="ibox-content" data-href="<%= pedido_path(pedido)  %>" %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= bs_label "##{pedido.id}", class: :primary %>
+            <small class="stats-label text-muted" style="float: right; text-align: right">
+              em <%= time_ago_in_words(pedido.created_at) %><br>
+              <br>
+              <%= pedido.created_at.strftime("%d/%m/%Y %H:%M") %>
+            </small>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

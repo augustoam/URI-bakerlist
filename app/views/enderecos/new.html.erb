@@ -1,0 +1,32 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <h5>Novo Endereço </h5>
+    </div>
+	  <%= simple_form_for(@endereco) do |f| %>
+	  	<div class="ibox-content">
+        <div class="content">
+	  
+			    <%= f.input :endereco, label: 'Endereço' %>
+
+			    <%= f.input :numero, label: 'Número' %>
+
+			    <%= f.input :referencia, label: 'Referência' %>
+
+			    <%= f.input :obs, label: 'Observações' %>
+
+			    <%= f.input :cep, label: 'CEP' %>
+
+			    <%= f.association :cidade, label: 'Cidade' %>
+
+			    <div class="hr-line-dashed"></div>
+			    <%= link_to 'Voltar', enderecos_path, class: "btn btn-default pull-left" %>
+			    <%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
+			    <br>
+			    <br>
+	  		</div>
+	  	</div>
+		<% end %>
+  </div>
+</div>
+
