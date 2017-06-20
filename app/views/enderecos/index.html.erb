@@ -8,13 +8,17 @@
       <div class="ibox-content" data-href="<%= endereco_path(endereco)  %>" %>
         <div class="row">
           <div class="col-xs-12">
-            <%= bs_label "##{endereco.id}", class: :primary %>
-            <b><%= endereco.endereco %> - <%= endereco.numero %></b>
-            <small class="stats-label text-muted" style="float: right; text-align: right">
-              em <%= time_ago_in_words(endereco.created_at) %><br>
-              <br>
-              <%= endereco.created_at.strftime("%d/%m/%Y %H:%M") %>
-            </small>
+            <div class="pull-right">
+              <%= link_to 'Excluir', endereco,  method: :delete, data: {confirm: "Você tem certeza?"}, class: "btn btn-danger" %>
+              <%= link_to 'Editar', edit_endereco_path(endereco), class: "btn btn-info " %>
+            </div>
+            <div style="margin-top: 7px;">
+              <%= bs_label "##{endereco.id}", class: :primary %>
+              <b><%= endereco.endereco %> - <%= endereco.numero %></b>
+              <small class="stats-label text-muted" style="margin-left: 5px;" >
+                <%= endereco.cidade.nome %>
+              </small>
+            </div>
           </div>
         </div>
       </div>

@@ -1,30 +1,53 @@
 <div class="wrapper wrapper-content animated fadeInUp">
   <div class="ibox float-e-margins">
     <div class="ibox-title">
-      <h5>Editar Endereço <%= "##{@endereco.id}" %></h5>
+      <h5>Nova Cidade </h5>
     </div>
 	  <%= simple_form_for(@endereco) do |f| %>
 	  	<div class="ibox-content">
         <div class="content">
-			    <%= f.input :endereco, label: 'Endereço' %>
+	  			<div class="row">
+	  				
+	  				<div class="col-md-9">
+				    	<%= f.input :endereco, label: 'Endereço' %>
+						</div>
+						
+						<div class="col-md-3">
+				    	<%= f.input :numero, label: 'Número' %>
+						</div>
 
-			    <%= f.input :numero, label: 'Número' %>
+						<div class="col-md-12">
+				    	<%= f.input :referencia, label: 'Referência' %>
+						</div>
 
-			    <%= f.input :referencia, label: 'Referência' %>
+						<div class="col-md-12">
+				    	<%= f.input :obs, label: 'Observações' %>
+				    </div>
+					
+						<div class="col-md-6">
+				    	<%= f.input :cep, label: 'CEP' %>
+				    </div>
 
-			    <%= f.input :obs, label: 'Observações' %>
+						<div class="col-md-6">
+				    	<%= f.association :cidade, label: 'Cidade' %>
+				    </div>
 
-			    <%= f.input :cep, label: 'CEP' %>
+						<div class="col-md-12">
+				    	<div class="hr-line-dashed"></div>
+				    </div>
 
-			    <%= f.association :cidade, label: 'Cidade' %>
-			    
-			    <div class="hr-line-dashed"></div>
-			    <%= link_to 'Voltar', enderecos_path, class: "btn btn-default pull-left" %>
-			    <%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
-			    <br>
-			    <br>
+				    <div class="col-md-6">
+				    	<%= link_to 'Voltar', enderecos_path, class: "btn btn-default pull-left" %>
+				    </div>
+
+				    <div class="col-md-6">
+				    	<%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
+				    </div>
+			    </div>
+
 	  		</div>
 	  	</div>
 		<% end %>
   </div>
 </div>
+

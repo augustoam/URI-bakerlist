@@ -8,7 +8,7 @@
         <div class="content">
 	  
 			    <%= f.input :nome %>
-			    <%= f.input :uf %>
+			    <%= f.input :uf, collection: ["RS", "SC", "PR"], label: 'UF' %>
 			    <div class="hr-line-dashed"></div>
 			    <%= link_to 'Voltar', cidades_path, class: "btn btn-default pull-left" %>
 			    <%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>

@@ -8,10 +8,10 @@
       <div class="ibox-content" data-href="<%= adiciona_carrinho_home_index_path(item_id: item.id, categoria_id: item.categoria)  %>" %>
         <div class="row">
           <div class="col-xs-12">
-          <% if ItemPedido.where(item_id: item.id) %>
-            <%= bs_label "adicionado ##{item.id}", class: :primary %>
+          <% if ItemPedido.find_by(item_id: item.id) %>
+            <%= bs_label "adicionado Código##{item.id}", class: :primary %>
           <% else %>
-            <%= bs_label "##{item.id}", class: :warning %>
+            <%= bs_label "Código ##{item.id}", class: :warning %>
           <% end %>
             <b><%= item.descricao %> 
             <small class="stats-label text-muted" style="float: right; text-align: right">

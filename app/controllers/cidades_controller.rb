@@ -54,15 +54,15 @@ class CidadesController < ApplicationController
   # DELETE /cidades/1
   # DELETE /cidades/1.json
   def destroy
-    if !Endereco.where(cidade: @cidade)
+    if !Endereco.find_by(cidade: @cidade)
       @cidade.destroy
       respond_to do |format|
-        format.html { redirect_to cidades_url, notice: 'Cidade foi excluida com sucesso.' }
+        format.html { redirect_to cidades_path, notice: 'Cidade foi excluida com sucesso.' }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-        format.html { redirect_to cidades_url, alert: 'Cidade associada a um endereço, não foi poissível excluir.' }
+        format.html { redirect_to cidades_path, alert: 'Cidade associada a um endereço, não foi poissível excluir.' }
       end
     end
   end

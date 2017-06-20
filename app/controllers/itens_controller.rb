@@ -20,7 +20,7 @@ class ItensController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: 'Item foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -32,7 +32,7 @@ class ItensController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: 'Item foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -42,10 +42,16 @@ class ItensController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to item_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+    if !ItemPedido.find_by(item_id: @item)
+      @item.destroy
+      respond_to do |format|
+        format.html { redirect_to itens_path, notice: 'Item foi excluido com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to itens_path, alert: 'Item associado a pedido, não foi poissível excluir.' }
+      end
     end
   end
 

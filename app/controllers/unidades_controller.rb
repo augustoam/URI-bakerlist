@@ -54,15 +54,15 @@ class UnidadesController < ApplicationController
   # DELETE /unidades/1
   # DELETE /unidades/1.json
   def destroy
-    if !Categoria.where(unidade: @unidade)
+    if !Item.find_by(unidade: @unidade)
       @unidade.destroy
       respond_to do |format|
-        format.html { redirect_to unidades_url, notice: 'Unidade foi excluida com sucesso.' }
+        format.html { redirect_to unidades_path, notice: 'Unidade foi excluida com sucesso.' }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-        format.html { redirect_to unidades_url, alert: 'Unidade associada a uma categoria, não foi possível excluir.' }
+        format.html { redirect_to unidades_path, alert: 'Unidade associada a uma categoria, não foi possível excluir.' }
       end
     end
   end

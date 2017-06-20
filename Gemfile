@@ -16,7 +16,7 @@ gem 'devise-i18n'
 gem 'devise'
 gem 'fcm'
 gem 'font-awesome-rails'
-gem 'inspinia-rails', git: "https://:x-oauth-basic@github.com/wondersistemas/inspinia-rails"
+gem 'inspinia-rails', git: "https://#{ENV['GITHUB_TOKEN']}:x-oauth-basic@github.com/wondersistemas/inspinia-rails"
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'json'
@@ -32,7 +32,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate', '~> 3.1'
 gem 'wonder_navigation'
-gem 'wonder_rails_helpers', git: "https://:x-oauth-basic@github.com/wondersistemas/wonder_rails_helpers"
+gem 'wonder_rails_helpers', git: "https://#{ENV['GITHUB_TOKEN']}:x-oauth-basic@github.com/wondersistemas/wonder_rails_helpers"
 
 group :development, :test do
   gem 'better_errors'

@@ -10,29 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620153546) do
+ActiveRecord::Schema.define(version: 20170620170608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "aulas", force: :cascade do |t|
-    t.string   "dia"
-    t.string   "conteudo"
-    t.text     "historico"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categoria", force: :cascade do |t|
-    t.string   "descricao"
-    t.string   "imagem"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "categorias", force: :cascade do |t|
     t.string   "descricao"
-    t.binary   "imagem"
+    t.string   "imagem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,10 +50,11 @@ ActiveRecord::Schema.define(version: 20170620153546) do
     t.string   "id_cliente"
     t.string   "dominio_login"
     t.boolean  "acesso_liberado"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
     t.string   "api_key"
     t.string   "id_database"
+    t.string   "string"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "itens", force: :cascade do |t|
@@ -84,10 +70,10 @@ ActiveRecord::Schema.define(version: 20170620153546) do
   create_table "itens_pedido", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "pedido_id"
+    t.float    "vl_total"
+    t.integer  "quantidade", default: 2
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.float    "vl_total"
-    t.integer  "quantidade", default: 1
   end
 
   create_table "pedidos", force: :cascade do |t|
@@ -110,10 +96,10 @@ ActiveRecord::Schema.define(version: 20170620153546) do
     t.integer  "operador_conclusao"
     t.string   "identificador_agrupamento"
     t.string   "identificador_tarefa"
+    t.boolean  "concluida",                 default: false
+    t.integer  "tipo_tarefa_id"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-    t.boolean  "concluida",                 default: false
-    t.integer  "tipo_liberacao_id"
     t.string   "titulo"
   end
 
@@ -127,12 +113,12 @@ ActiveRecord::Schema.define(version: 20170620153546) do
     t.datetime "updated_at",                           null: false
   end
 
-  create_table "tipos_liberacoes", force: :cascade do |t|
-    t.string   "identificador_liberacao"
+  create_table "tipos_tarefas", force: :cascade do |t|
+    t.string   "id_tipo_tarefa"
     t.integer  "instancia_id"
     t.string   "descricao"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -159,12 +145,11 @@ ActiveRecord::Schema.define(version: 20170620153546) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "password"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
@@ -174,9 +159,9 @@ ActiveRecord::Schema.define(version: 20170620153546) do
   create_table "usuarios_instancia", force: :cascade do |t|
     t.string   "email"
     t.integer  "instancia_id"
+    t.string   "cod_usuario"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "cod_usuario"
   end
 
   create_table "usuarios_instancia_usuarios", force: :cascade do |t|
@@ -193,10 +178,10 @@ ActiveRecord::Schema.define(version: 20170620153546) do
   add_foreign_key "itens_pedido", "pedidos"
   add_foreign_key "pedidos", "formas_pagamentos"
   add_foreign_key "tarefas", "instancias"
-  add_foreign_key "tarefas", "tipos_liberacoes", column: "tipo_liberacao_id"
+  add_foreign_key "tarefas", "tipos_tarefas"
   add_foreign_key "tarefas_usuarios_instancia", "tarefas"
   add_foreign_key "tarefas_usuarios_instancia", "usuarios_instancia"
-  add_foreign_key "tipos_liberacoes", "instancias"
+  add_foreign_key "tipos_tarefas", "instancias"
   add_foreign_key "tokens", "usuarios"
   add_foreign_key "usuarios_instancia", "instancias"
   add_foreign_key "usuarios_instancia_usuarios", "usuarios"

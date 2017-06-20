@@ -8,12 +8,12 @@ default: &default
 development:
   <<: *default
   host: localhost
-  database: servidor_wonder
+  database: baker_wonder
 
 test:
   <<: *default
-  database: servidor_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: baker_test<%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
   <<: *default
-  database: servidor_production
+  database: baker_production

@@ -16,7 +16,7 @@ class CategoriasController < ApplicationController
   end
 
   def create
-    @categoria = Categoria.new(categorias_params)
+    @categoria = Categoria.new(categoria_params)
 
     respond_to do |format|
       if @categoria.save
@@ -31,7 +31,7 @@ class CategoriasController < ApplicationController
 
   def update
     respond_to do |format|
-      if @categoria.update(categorias_params)
+      if @categoria.update(categoria_params)
         format.html { redirect_to @categoria, notice: 'categoria foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @categoria }
       else
@@ -42,15 +42,15 @@ class CategoriasController < ApplicationController
   end
 
   def destroy
-    if !Item.where(categoria: @categoria)
+    if !Item.find_by(categoria: @categoria)
       @categoria.destroy
       respond_to do |format|
-        format.html { redirect_to categorias_url, notice: 'categoria foi excluida com sucesso.' }
+        format.html { redirect_to categorias_path, notice: 'categoria foi excluida com sucesso.' }
         format.json { head :no_content }
       end
     else
       respond_to do |format|
-      format.html { redirect_to categorias_url, alert: 'categoria associada a um item, não foi possível excluir.' } 
+      format.html { redirect_to categorias_path, alert: 'categoria associada a um item, não foi possível excluir.' } 
       end
     end
   end
@@ -62,7 +62,7 @@ class CategoriasController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def categorias_params
+    def categoria_params
       params.require(:categoria).permit(:descricao, :imagem)
     end
 end

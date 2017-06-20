@@ -8,7 +8,7 @@
 <% if current_usuario.admin? %>
   <li>
     <%= link_to categorias_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-sort-alpha-asc"></i>
       <span class="nav-label">Categorias</span>
     <% end %>
   </li>
@@ -17,7 +17,7 @@
 <% if current_usuario.admin? %>
   <li>
     <%= link_to formas_pagamentos_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-money"></i>
       <span class="nav-label">Formas de Pagamento</span>
     <% end %>
   </li>
@@ -26,7 +26,7 @@
 <% if current_usuario.admin? %>
   <li>
     <%= link_to cidades_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-map-o"></i>
       <span class="nav-label">Cidades</span>
     <% end %>
   </li>
@@ -35,7 +35,7 @@
 <% if !current_usuario.admin? %>
   <li>
     <%= link_to enderecos_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-map-marker"></i>
       <span class="nav-label">Endereços</span>
     <% end %>
   </li>
@@ -44,7 +44,7 @@
 <% if current_usuario.admin? %>
   <li>
     <%= link_to unidades_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-flask"></i>
       <span class="nav-label">Unidades</span>
     <% end %>
   </li>
@@ -53,7 +53,7 @@
 <% if current_usuario.admin? %>
   <li>
     <%= link_to pedidos_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-exchange"></i>
       <span class="nav-label">Pedidos</span>
     <% end %>
   </li>
@@ -62,7 +62,7 @@
 <% if current_usuario.admin? %>
   <li>
     <%= link_to itens_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-sort-alpha-asc"></i>
       <span class="nav-label">Itens</span>
     <% end %>
   </li>
@@ -71,7 +71,7 @@
 <% if !current_usuario.admin? %>
   <li>
     <%= link_to carrinho_home_index_path do %>
-      <i class="fa fa-home"></i>
+      <i class="fa fa-shopping-cart"></i>
       <span class="nav-label">Carrinho</span>
     <% end %>
   </li>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Probus Server</title>
+    <title>Baker List</title>
     <!-- Main css styles -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <!-- Main javascript files -->
@@ -13,7 +13,7 @@
   </head>
   <body class="gray-bg">
     <div>
-      <h3 align="center" class="logo-name">P</h3>
+      <h3 align="center" class="logo-name">Baker</h3>
     </div>
     <div class="middle-box text-center loginscreen animated fadeInDown">
       <% if notice.present? %>
@@ -31,7 +31,7 @@
       <%= yield %>
       <p class="m-t">
         <small>
-          <%= link_to "Wonder", "http://www.wonder.com.br", target: "_blank" %> &copy; <%= Date.today.year %>
+          <%= link_to "Bker List", target: "_blank" %> &copy; <%= Date.today.year %>
         </small>
       </p>
     </div>
