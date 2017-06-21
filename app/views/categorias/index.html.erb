@@ -3,7 +3,7 @@
     <div class="ibox-title">
       <div class="row">
         <div class="col-md-1">
-          <h3>Categorias <% if @categoria.count == 0 %> <small>- nenhum registro encontrado</small><% end %><h3>
+          <h3>Categorias <% if @categorias.count == 0 %> <small>- nenhum registro encontrado</small><% end %><h3>
         </div>
         <%= search_form_for @q do |f| %>
           <div class="col-md-7">
@@ -31,7 +31,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @categoria.each do |categoria| %>
+                <% @categorias.each do |categoria| %>
                   <tr data-href="<%= categoria_path(categoria) %>">
                     <td><%= categoria.id  %></td>
                     <td><%= categoria.descricao  %></td>
