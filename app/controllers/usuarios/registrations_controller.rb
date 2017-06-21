@@ -10,7 +10,9 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
 
       # Busca o usuario criado para salvar o token do aparelho celular que encontra-se no parametro da sessão
       usuario = Usuario.find_by(email: params[:usuario][:email]) 
-      token = usuario.tokens.create!(token: session[:token])
+      puts session[:token]
+      puts 'HEEEEEEEEEy'
+      Usuario.create!(token: session[:token], usuario: usuario)
 
       # Atribui a UsuarioInstanciaUsuario os usuarios instancia e o proprio usuario.
 

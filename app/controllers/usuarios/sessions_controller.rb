@@ -2,6 +2,14 @@ class Usuarios::SessionsController < Devise::SessionsController
   layout 'login'
 
   def create
+    @usuario = Usuario.find_by(email: params[:usuario][:email]) 
+    if @usuario && session[:token]
+      token = @usuario.tokens.find_by(token: session[:token]) 
+      unless token
+        @token = @usuario.tokens.new(token: session[:token])
+        @token.save
+      end
+    end
     super
   end
 
