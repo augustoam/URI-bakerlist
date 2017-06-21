@@ -1,0 +1,38 @@
+<div class="wrapper wrapper-content animated fadeInUp">
+  <div class="ibox float-e-margins">
+    <div class="ibox-title">
+      <%= link_to 'Avançar Pedido', info_pedido_home_index_path(vl_total: calcula_total(@itens_pedido)), class: "btn-sm btn-primary pull-right" %>
+      <b><h3>Carrinho <% if @itens_pedido.count == 0 %> <small>- carrinho vazio</small><% end %></h3></b>  
+      <br>
+      <b>Valor total do Pedido: <%= number_to_currency calcula_total(@itens_pedido) %></b>  
+    </div>
+    <% @itens_pedido.each do |item_pedido| %>
+      <div class="ibox-content"  %>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="pull-right">
+              <b style="margin-right: 10px">
+                <%= link_to item_pedido,  method: :delete, data: {confirm: "Você tem certeza?"} do %>
+                  <i class="fa fa-close fa-2x text-danger"></i>
+                <% end %>
+              </b>
+              <%= link_to diminui_quantidade_home_path(item_pedido), method: :patch, remote: true do %>
+                <i class="fa fa-minus-square-o fa-2x"></i>
+              <% end %>
+              <b style="font-size: 24px; margin-left: 10px;"><%= item_pedido.quantidade %></b>
+              <b style="font-size: 15px; margin-right: 10px;"><%= item_pedido.item.unidade %></b>
+              <%= link_to add_quantidade_home_path(item_pedido), method: :patch, remote: true  do %>
+                <i class="fa fa-plus-square-o fa-2x "></i>
+              <% end %>
+            </div>
+            <div style="font-size: 14px; margin-top: 5px;">
+              <b><%= item_pedido.item.descricao %> </b> 
+              <br>
+              <b><%=number_to_currency(item_pedido.quantidade * item_pedido.item.preco) %></b>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

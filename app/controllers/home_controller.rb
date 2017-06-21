@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     if pedido 
       @itens_pedido = ItemPedido.where(pedido: pedido)
     else
-      pedido = Pedido.create(usuario_id: current_usuario.id)
+      pedido = Pedido.create(usuario_id: current_usuario.id, vl_total: 0)
       @itens_pedido = ItemPedido.where(pedido: pedido)
     end
   end
@@ -29,29 +29,28 @@ class HomeController < ApplicationController
   def adiciona_carrinho
     pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
     if pedido
-      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id])
+      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id], quantidade: 1)
     else
-      pedido = Pedido.create!(usuario_id: current_usuario.id)
-      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id])
+      pedido = Pedido.create!(usuario_id: current_usuario.id, vl_total: 0)
+      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id], quantidade: 1)
     end
     redirect_to itens_home_index_path(categoria_id: params[:categoria_id])
   end
 
   def info_pedido
     @pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
+    @pedido.update!(vl_total: params[:vl_total])
   end
 
   def add_quantidade
-    pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
-    item_pedido = ItemPedido.find_by(pedido_id: pedido.id, item_id: params[:item_id])
+    item_pedido = ItemPedido.find(params[:id])
     item_pedido.update(quantidade: item_pedido.quantidade+1)
-    redirect_to carrinho_home_index_path
+    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido)
   end
 
   def diminui_quantidade
-    pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
-    item_pedido = ItemPedido.find_by(pedido_id: pedido.id, item_id: params[:item_id])
-    item_pedido.update(quantidade: item_pedido.quantidade-1)
-    redirect_to carrinho_home_index_path
+    item_pedido = ItemPedido.find(params[:id])
+    item_pedido.update(quantidade: item_pedido.quantidade-1, vl_total: item_pedido.quantidade-1 * item_pedido.item.preco)
+    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido)
   end
 end

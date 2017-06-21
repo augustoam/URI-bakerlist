@@ -4,7 +4,8 @@ class FormasPagamentosController < ApplicationController
   # GET /forma_pagamentos
   # GET /forma_pagamentos.json
   def index
-    @formas_pagamentos = FormaPagamento.all
+    @q = FormaPagamento.ransack(params[:q])
+    @formas_pagamentos = @q.result(distinct: true)
   end
 
   # GET /forma_pagamentos/1

@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     get :carrinho, on: :collection 
     get :adiciona_carrinho, on: :collection
     get :info_pedido, on: :collection
-    get :add_quantidade, on: :collection
-    get :diminui_quantidade, on: :collection
+    patch :add_quantidade, on: :member
+    patch :diminui_quantidade, on: :member
   end
 
   resources :tarefas do

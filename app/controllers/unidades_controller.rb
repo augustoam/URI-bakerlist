@@ -4,7 +4,8 @@ class UnidadesController < ApplicationController
   # GET /unidades
   # GET /unidades.json
   def index
-    @unidades = Unidade.all
+    @q = Unidade.ransack(params[:q])
+    @unidades = @q.result(distinct: true)
   end
 
   # GET /unidades/1

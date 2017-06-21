@@ -2,6 +2,7 @@
   <div class="ibox float-e-margins">
     <div class="ibox-title">
       <h5>Pedido <%= "##{@pedido.id}" %></h5>
+      <b class="pull-right">Valor total do pedido: <%= number_to_currency @pedido.vl_total %></b>
     </div>
     <%= simple_form_for(@pedido) do |f| %>
       <div class="ibox-content">
@@ -12,13 +13,13 @@
             <div class="col-md-12">
               <%= f.input :forma_entrega, label: 'Forma de Entrega', collection: ["Retirar na Padaria", "Enviar para minha casa"] %>
             </div>
+            
+            <div class="col-md-12">  
+              <%= f.association :forma_pagamento, label: 'Forma Pagamento' %>
+            </div>
 
             <div class="col-md-12">
               <%= f.association :endereco, label: 'Endereço' %>
-            </div>
-
-            <div class="col-md-12">  
-              <%= f.association :forma_pagamento, label: 'Forma Pagamento' %>
             </div>
 
             <div class="col-md-12">  
@@ -26,7 +27,7 @@
             </div>
 
             <div class="col-md-6">  
-              <%= link_to 'Voltar', itens_path, class: "btn btn-default pull-left" %>
+              <%= link_to 'Voltar', carrinho_home_index_path, class: "btn btn-default pull-left" %>
             </div>
 
             <div class="col-md-6">  

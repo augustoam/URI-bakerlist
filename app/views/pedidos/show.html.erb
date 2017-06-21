@@ -16,13 +16,13 @@
       </p>
 
       <p>
-        <strong>Endereço:</strong>
+        <strong>Endereço Entrega:</strong>
         <%= @pedido.endereco.endereco %>
       </p>
 
       <p>
         <strong>Valor Total:</strong>
-        <%= @pedido.vl_total %>
+        <%= number_to_currency @pedido.vl_total %>
       </p>
 
       <br>
@@ -49,7 +49,7 @@
                     <td><%= item_pedido.item.descricao  %></td>
                     <td><%= item_pedido.quantidade %></td>
                     <td><%= item_pedido.item.unidade.descricao %></td>
-                    <td>R$ <%= item_pedido.item.preco %></td>
+                    <td><%= number_to_currency item_pedido.item.preco %></td>
                   </tr>
                 <% end %>
               </tbody>

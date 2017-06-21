@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 20170620230018) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.boolean  "concluido",          default: false
-    t.string   "tipo_entrega"
     t.float    "vl_total"
   end
 

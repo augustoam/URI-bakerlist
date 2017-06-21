@@ -1,30 +1,3 @@
-<div class="wrapper wrapper-content animated fadeInUp">
-  <div class="ibox float-e-margins">
-    <div class="ibox-title">
-      <h5>Carrinho <% if @itens_pedido.count == 0 %> <small>- carrinho vazio</small><% end %></h5>
-      <%= link_to 'Avançar Pedido', info_pedido_home_index_path, class: "btn-sm btn-primary pull-right" %>
-    </div>
-    <% @itens_pedido.each do |item_pedido| %>
-      <div class="ibox-content" %>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="pull-right">
-              <%= link_to diminui_quantidade_home_index_path(item_id: item_pedido.item.id) do %>
-                <i class="fa fa-minus-square-o fa-2x"></i>
-              <% end %>
-              <b style="font-size: 24px; margin-left: 10px;"><%= item_pedido.quantidade %></b>
-              <b style="font-size: 15px; margin-right: 10px;"><%= item_pedido.item.unidade %></b>
-              <%= link_to add_quantidade_home_index_path(item_id: item_pedido.item.id) do %>
-                <i class="fa fa-plus-square-o fa-2x "></i>
-              <% end %>
-            </div>
-            <div style="font-size: 14px; margin-top: 5px;">
-              <%= bs_label "##{item_pedido.id}", class: :primary %>
-              <b><%= item_pedido.item.descricao %> </b>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+<div id="atualiza_carrinho">
+  <%= render 'carrinho', model: @itens_pedido %>
 </div>

@@ -4,7 +4,8 @@ class ItensPedidoController < ApplicationController
   # GET /item_pedidos
   # GET /item_pedidos.json
   def index
-    @itens_pedido = ItemPedido.all
+    @q = ItemPedido.ransack(params[:q])
+    @itens_pedido = @q.result(distinct: true)
   end
 
   # GET /item_pedidos/1
@@ -56,7 +57,7 @@ class ItensPedidoController < ApplicationController
   def destroy
     @item_pedido.destroy
     respond_to do |format|
-      format.html { redirect_to item_pedidos_url, notice: 'Item pedido was successfully destroyed.' }
+      format.html { redirect_to carrinho_home_index_path, notice: 'Item do pedido foi excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

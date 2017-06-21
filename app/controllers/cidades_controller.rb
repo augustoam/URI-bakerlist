@@ -4,7 +4,8 @@ class CidadesController < ApplicationController
   # GET /cidades
   # GET /cidades.json
   def index
-    @cidades = Cidade.all
+    @q = Cidade.ransack(params[:q])
+    @cidades = @q.result(distinct: true)
   end
 
   # GET /cidades/1

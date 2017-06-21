@@ -2,7 +2,8 @@ class ItensController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @itens = Item.all
+    @q = Item.ransack(params[:q])
+    @itens = @q.result(distinct: true)
   end
 
   def show
