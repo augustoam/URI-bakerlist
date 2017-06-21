@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_usuario!, :set_session_token
 
   def set_session_token
-    if params[:token]
-      session[:token] = params[:token]
-    end
+    session[:token] = params[:token]
   end
 end
