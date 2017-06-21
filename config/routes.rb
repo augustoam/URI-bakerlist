@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :forma_entregas
   root 'home#index'
 
   resources :categorias

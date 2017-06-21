@@ -52,15 +52,6 @@
 
 <% if current_usuario.admin? %>
   <li>
-    <%= link_to pedidos_path do %>
-      <i class="fa fa-exchange"></i>
-      <span class="nav-label">Pedidos</span>
-    <% end %>
-  </li>
-<% end %>
-
-<% if current_usuario.admin? %>
-  <li>
     <%= link_to itens_path do %>
       <i class="fa fa-sort-alpha-asc"></i>
       <span class="nav-label">Itens</span>
@@ -76,3 +67,10 @@
     <% end %>
   </li>
 <% end %>
+
+<li>
+  <%= link_to pedidos_path do %>
+    <i class="fa fa-exchange"></i>
+    <span class="nav-label">Pedidos</span>
+  <% end %>
+</li>

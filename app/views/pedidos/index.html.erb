@@ -22,12 +22,14 @@
                     <td><%= pedido.id  %></td>
                     <td><%= pedido.usuario.email  %></td>
                     <td><%= pedido.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-                    <td>
-                      <div class="pull-right">
-                      <%= link_to 'Excluir', pedido,  method: :delete, data: {confirm: "Você tem certeza?"}, class: "btn-sm btn-danger" %>
-                      <%= link_to 'Editar', edit_pedido_path(pedido), class: "btn-sm btn-info" %>
-                      </div>
-                    </td>
+                    <% if current_usuario.admin? %>
+                      <td>
+                        <div class="pull-right">
+                        <%= link_to 'Excluir', pedido,  method: :delete, data: {confirm: "Você tem certeza?"}, class: "btn-sm btn-danger" %>
+                        <%= link_to 'Editar', edit_pedido_path(pedido), class: "btn-sm btn-info" %>
+                        </div>
+                      </td>
+                    <% end %>
                   </tr>
                 <% end %>  
               </tbody>

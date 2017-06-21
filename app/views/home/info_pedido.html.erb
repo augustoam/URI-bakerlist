@@ -6,17 +6,33 @@
     <%= simple_form_for(@pedido) do |f| %>
       <div class="ibox-content">
         <div class="content">
-          
+          <div class="row">
+            
+            <%= f.hidden_field  :concluido, value: true %>
+            <div class="col-md-12">
+              <%= f.input :forma_entrega, label: 'Forma de Entrega', collection: ["Retirar na Padaria", "Enviar para minha casa"] %>
+            </div>
 
-          <%= f.association :endereco, label: 'Endereço' %>
+            <div class="col-md-12">
+              <%= f.association :endereco, label: 'Endereço' %>
+            </div>
 
-          <%= f.association :forma_pagamento, label: 'Forma Pagamento' %>
-          
-          <div class="hr-line-dashed"></div>
-          <%= link_to 'Voltar', itens_path, class: "btn btn-default pull-left" %>
-          <%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
-          <br>
-          <br>
+            <div class="col-md-12">  
+              <%= f.association :forma_pagamento, label: 'Forma Pagamento' %>
+            </div>
+
+            <div class="col-md-12">  
+              <div class="hr-line-dashed"></div>
+            </div>
+
+            <div class="col-md-6">  
+              <%= link_to 'Voltar', itens_path, class: "btn btn-default pull-left" %>
+            </div>
+
+            <div class="col-md-6">  
+              <%= f.button :submit, "Concluir Pedido", class: "btn btn-primary pull-right" %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>

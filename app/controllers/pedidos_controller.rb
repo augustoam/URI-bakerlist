@@ -4,12 +4,17 @@ class PedidosController < ApplicationController
   # GET /pedidos
   # GET /pedidos.json
   def index
-    @pedidos = Pedido.all
+    if current_usuario.admin?
+      @pedidos = Pedido.all
+    else
+      @pedidos = Pedido.where(usuario: current_usuario)
+    end
   end
 
   # GET /pedidos/1
   # GET /pedidos/1.json
   def show
+    @itens_pedido = ItemPedido.where(pedido: @pedido)
   end
 
   # GET /pedidos/new
@@ -69,6 +74,6 @@ class PedidosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pedido_params
-      params.require(:pedido).permit(:data_entrega, :hora_entrega, :forma_entrega, :forma_pagamento_id, :usuario_id, :endereco_id)
+      params.require(:pedido).permit(:data_entrega, :hora_entrega, :forma_entrega, :forma_pagamento_id, :usuario_id, :endereco_id, :concluido)
     end
 end

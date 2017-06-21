@@ -17,15 +17,19 @@ class HomeController < ApplicationController
   end
 
   def carrinho
-    @itens_pedido = ItemPedido.all
+    pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
+    if pedido 
+      @itens_pedido = ItemPedido.where(pedido: pedido)
+    else
+      pedido = Pedido.create(usuario_id: current_usuario.id)
+      @itens_pedido = ItemPedido.where(pedido: pedido)
+    end
   end
 
   def adiciona_carrinho
     pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
     if pedido
-      if !ItemPedido.find_by(item_id: params[:item_id])
-        ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id])
-      end
+      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id])
     else
       pedido = Pedido.create!(usuario_id: current_usuario.id)
       ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id])

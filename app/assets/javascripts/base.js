@@ -1,8 +1,5 @@
 $(document).on('turbolinks:load', function() {
   // barra de progresso
-  $('.upload').on('change', function(){
-    $('#upload-file-info').val($(this).val());
-  });
   
   Turbolinks.BrowserAdapter.prototype.showProgressBarAfterDelay = function() {
     this.progressBarTimeout = setTimeout(this.showProgressBar, 100);
