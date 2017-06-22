@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def itens
-  	@itens = Item.where(categoria_id: params[:categoria_id])
+  	@itens = Item.where(categoria_id: params[:categoria_id]).order(created_at: :asc)
   end
 
   def carrinho
@@ -43,12 +43,12 @@ class HomeController < ApplicationController
   def add_quantidade
     item_pedido = ItemPedido.find(params[:id])
     item_pedido.update(quantidade: item_pedido.quantidade+1)
-    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido)
+    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido).order(created_at: :asc)
   end
 
   def diminui_quantidade
     item_pedido = ItemPedido.find(params[:id])
     item_pedido.update(quantidade: item_pedido.quantidade-1, vl_total: item_pedido.quantidade-1 * item_pedido.item.preco)
-    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido)
+    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido).order(created_at: :asc)
   end
 end
