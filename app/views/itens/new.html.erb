@@ -8,31 +8,31 @@
         <div class="content">
         	<div class="row">
 	  
-	  			<div class="col-md-12">
-			    	<%= f.input :descricao, label: 'Descrição' %>
-			    </div>
-					
-					<div class="col-md-6">
-			    	<%= f.input :preco, label: 'Preço' %>
-					</div>
+		  			<div class="col-md-12">
+				    	<%= f.input :descricao, label: 'Descrição' %>
+				    </div>
+						
+						<div class="col-md-6">
+				    	<%= f.input :preco, label: 'Preço' %>
+						</div>
 
-					<div class="col-md-6">
-			    	<%= f.association :unidade, label: 'Unidade' %>
-					</div>
+						<div class="col-md-6">
+				    	<%= f.association :unidade, label: 'Unidade' %>
+						</div>
 
-					<div class="col-md-12">
-			    	<%= f.association :categoria, label: 'Categoria' %>			 		
+						<div class="col-md-12">
+				    	<%= f.association :categoria, label: 'Categoria' %>			 		
+						</div>
+						<div class="col-md-12">
+				    	<div class="hr-line-dashed"></div>
+				    </div>
+				    <div class="col-md-6">
+				    	<%= link_to 'Voltar', itens_path, class: "btn btn-default pull-left" %>
+				    </div>
+				    <div class="col-md-6">
+				    	<%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
+				    </div>
 					</div>
-					<div class="col-md-12">
-			    	<div class="hr-line-dashed"></div>
-			    </div>
-			    <div class="col-md-6">
-			    	<%= link_to 'Voltar', itens_path, class: "btn btn-default pull-left" %>
-			    </div>
-			    <div class="col-md-6">
-			    	<%= f.button :submit, "Salvar", class: "btn btn-primary pull-right" %>
-			    </div>
-				</div>
 	  		</div>
 	  	</div>
 		<% end %>

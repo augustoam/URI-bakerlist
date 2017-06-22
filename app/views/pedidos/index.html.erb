@@ -12,7 +12,7 @@
               <thead>
                 <tr>
                   <th>Id</th>
-                  <th>Descrição</th>
+                  <th>Pessoa</th>
                   <th>Data Criação</th>
                 </tr>
               </thead>
@@ -26,7 +26,6 @@
                       <td>
                         <div class="pull-right">
                         <%= link_to 'Excluir', pedido,  method: :delete, data: {confirm: "Você tem certeza?"}, class: "btn-sm btn-danger" %>
-                        <%= link_to 'Editar', edit_pedido_path(pedido), class: "btn-sm btn-info" %>
                         </div>
                       </td>
                     <% end %>

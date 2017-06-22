@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Pedido.destroy_all
+Item.destroy_all
+
 Usuario.destroy_all
 Usuario.transaction do
   user = Usuario.new(email: 'admin', password: '123456', admin: true)
@@ -49,4 +52,45 @@ Categoria.transaction do
 	Categoria.create!(descricao: 'Lanches')
 	Categoria.create!(descricao: 'Pães')
 	Categoria.create!(descricao: 'Bolos e Tortas')
+end
+
+unidade = Unidade.find_by(descricao:'Unidade')
+categoria = Categoria.find_by(descricao:'Doces')
+Item.transaction do
+	Item.create!(descricao:'Brigadeiro', preco:2.40, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Cupcake', preco:5.50, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Bombom', preco:3.60, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Donuts', preco:5.50, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Cajuzinho', preco:2.40, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Beijinho', preco:2.50, categoria: categoria, unidade: unidade)
+end
+
+unidade = Unidade.find_by(descricao:'Unidade')
+categoria = Categoria.find_by(descricao:'Salgados')
+Item.transaction do
+	Item.create!(descricao:'Rissole', preco:2.40, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Croquete', preco:5.50, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Pastel', preco:3.60, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Coxinha', preco:5.50, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Cajuzinho', preco:2.40, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Beijinho', preco:2.50, categoria: categoria, unidade: unidade)
+end
+
+unidade = Unidade.find_by(descricao:'KG')
+categoria = Categoria.find_by(descricao:'Frios')
+Item.transaction do
+	Item.create!(descricao:'Presunto', preco:2.40, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Queijo', preco:5.50, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Mumu', preco:3.60, categoria: categoria, unidade: unidade)
+end
+
+unidade = Unidade.find_by(descricao:'KG')
+categoria = Categoria.find_by(descricao:'Pães')
+Item.transaction do
+	Item.create!(descricao:'Pão de Centeio', preco:2.40, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Pão Sírio', preco:5.50, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Pão de Queijo', preco:3.60, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Pão de Francês', preco:3.60, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Pão de Forma', preco:3.60, categoria: categoria, unidade: unidade)
+	Item.create!(descricao:'Bagel', preco:3.60, categoria: categoria, unidade: unidade)
 end
