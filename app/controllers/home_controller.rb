@@ -27,13 +27,11 @@ class HomeController < ApplicationController
   end
 
   def adiciona_carrinho
-    pedido = Pedido.find_by(concluido: false, usuario_id: current_usuario.id)
-    if pedido
-      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id], quantidade: 1)
-    else
-      pedido = Pedido.create!(usuario_id: current_usuario.id, vl_total: 0)
-      ItemPedido.create!(pedido_id: pedido.id, item_id: params[:item_id], quantidade: 1)
-    end
+    pedido = Pedido.find_by(concluido: false, usuario: current_usuario)
+    if !pedido
+      pedido = Pedido.create!(usuario: current_usuario, vl_total: 0)
+    end  
+    ItemPedido.create!(pedido: pedido, item_id: params[:item_id], quantidade: 1)
     redirect_to itens_home_index_path(categoria_id: params[:categoria_id])
   end
 
