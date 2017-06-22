@@ -2,5 +2,5 @@ class Pedido < ApplicationRecord
 	belongs_to :forma_pagamento
 	belongs_to :endereco
   belongs_to :usuario
-	belongs_to :itens_pedido
+	has_many :itens_pedido
 end

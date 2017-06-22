@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620230018) do
+ActiveRecord::Schema.define(version: 20170622120706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,7 +177,9 @@ ActiveRecord::Schema.define(version: 20170620230018) do
   add_foreign_key "itens", "unidades"
   add_foreign_key "itens_pedido", "itens"
   add_foreign_key "itens_pedido", "pedidos"
+  add_foreign_key "pedidos", "enderecos"
   add_foreign_key "pedidos", "formas_pagamentos"
+  add_foreign_key "pedidos", "usuarios"
   add_foreign_key "tarefas", "instancias"
   add_foreign_key "tarefas", "tipos_tarefas"
   add_foreign_key "tarefas_usuarios_instancia", "tarefas"
