@@ -1,7 +1,7 @@
 <div class="wrapper wrapper-content animated fadeInUp">
   <div class="ibox float-e-margins">
     <div class="ibox-title">
-      <%= link_to 'Avançar Pedido', info_pedido_home_index_path(vl_total: calcula_total(@itens_pedido)), class: "btn-md btn-primary pull-right" %>
+      <%= link_to 'Avançar Pedido', info_pedido_home_index_path(vl_total: calcula_total(@itens_pedido)), class: "btn btn-primary pull-right" %>
       <b><h3>Carrinho <% if @itens_pedido.count == 0 %> <small>- carrinho vazio</small><% end %></h3></b>  
       <br>
       <b>Valor total do Pedido: <%= number_to_currency calcula_total(@itens_pedido) %></b>  
