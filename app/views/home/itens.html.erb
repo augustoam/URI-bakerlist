@@ -1,7 +1,7 @@
 <div class="wrapper wrapper-content animated fadeInUp">
   <div class="ibox float-e-margins">
     <div class="ibox-title">
-      <h5>Itens <% if @itens.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
+      <h3>Itens</h3>
     </div>
     <% @itens.each do |item| %>
       <div class="ibox-content" data-href="<%= adiciona_carrinho_home_index_path(item_id: item.id, categoria_id: item.categoria)  %>" %>
@@ -19,7 +19,7 @@
             <b><%= item.descricao %> </b>
 
             <div class="stats-label text-muted" style="float: right; text-align: right;">
-              <%= number_to_currency item.preco %> <%= item.unidade.descricao %><br> 
+              <b><%= number_to_currency item.preco %> <%= item.unidade.descricao %></b> 
             </div>
             
           </div>
