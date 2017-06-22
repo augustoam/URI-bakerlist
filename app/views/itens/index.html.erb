@@ -27,6 +27,7 @@
                 <tr>
                   <th>Id</th>
                   <th>Descrição</th>
+                  <th>Categoria</th>
                   <th>Data Criação</th>
                 </tr>
               </thead>
@@ -35,6 +36,7 @@
                   <tr data-href="<%= item_path(item)  %>" >
                     <td><%= item.id  %></td>
                     <td><%= item.descricao  %></td>
+                    <td><%= item.categoria.descricao  %></td>
                     <td><%= item.created_at.strftime("%d/%m/%Y %H:%M") %></td>
                     <td>
                       <div class="pull-right">

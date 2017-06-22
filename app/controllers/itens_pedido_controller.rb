@@ -5,7 +5,7 @@ class ItensPedidoController < ApplicationController
   # GET /item_pedidos.json
   def index
     @q = ItemPedido.ransack(params[:q])
-    @itens_pedido = @q.result(distinct: true)
+    @itens_pedido = @q.result(distinct: true).order(created_at: :asc)
   end
 
   # GET /item_pedidos/1

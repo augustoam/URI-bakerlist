@@ -2,7 +2,7 @@
   <div class="ibox float-e-margins">
     <div class="ibox-title">
       <h5>Endereços <% if @enderecos.count == 0 %> <small>- nenhum registro encontrado</small><% end %></h5>
-      <%= link_to 'Novo Endereço', new_endereco_path, class: "btn-sm btn-primary pull-right" %>
+      <%= link_to 'Novo Endereço', new_endereco_path, class: "btn-md btn-primary pull-right" %>
     </div>
     <% @enderecos.each do |endereco| %>
       <div class="ibox-content" data-href="<%= endereco_path(endereco)  %>" %>

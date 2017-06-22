@@ -7,7 +7,7 @@ class PedidosController < ApplicationController
     if current_usuario.admin?
       @pedidos = Pedido.all
     else
-      @pedidos = Pedido.where(usuario: current_usuario, concluido: true)
+      @pedidos = Pedido.where(usuario: current_usuario, concluido: true).order(created_at: :asc)
     end
   end
 

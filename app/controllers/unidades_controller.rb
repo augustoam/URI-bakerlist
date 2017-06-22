@@ -5,7 +5,7 @@ class UnidadesController < ApplicationController
   # GET /unidades.json
   def index
     @q = Unidade.ransack(params[:q])
-    @unidades = @q.result(distinct: true)
+    @unidades = @q.result.order(created_at: :asc)
   end
 
   # GET /unidades/1

@@ -3,7 +3,7 @@ class CategoriasController < ApplicationController
 
   def index
     @q = Categoria.ransack(params[:q])
-    @categorias = @q.result
+    @categorias = @q.result.order(created_at: :asc)
   end
 
   def show

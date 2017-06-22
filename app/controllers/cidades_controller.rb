@@ -5,7 +5,7 @@ class CidadesController < ApplicationController
   # GET /cidades.json
   def index
     @q = Cidade.ransack(params[:q])
-    @cidades = @q.result(distinct: true)
+    @cidades = @q.result.order(created_at: :asc)
   end
 
   # GET /cidades/1

@@ -3,7 +3,7 @@ class ItensController < ApplicationController
 
   def index
     @q = Item.ransack(params[:q])
-    @itens = @q.result(distinct: true)
+    @itens = @q.result.order(created_at: :asc)
   end
 
   def show

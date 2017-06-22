@@ -5,7 +5,7 @@ class FormasPagamentosController < ApplicationController
   # GET /forma_pagamentos.json
   def index
     @q = FormaPagamento.ransack(params[:q])
-    @formas_pagamentos = @q.result(distinct: true)
+    @formas_pagamentos = @q.result.order(created_at: :asc)
   end
 
   # GET /forma_pagamentos/1
