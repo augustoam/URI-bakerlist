@@ -5,6 +5,8 @@ class Usuario < ApplicationRecord
   has_many :usuarios_instancia_usuarios, dependent: :destroy
   has_many :usuarios_instancia, through: :usuarios_instancia_usuarios
   has_many :tarefas_usuarios_instancia, through: :usuarios_instancia
+  has_many :pedidos
+  belongs_to :endereco
 
   def notifica_nova_tarefa(tarefa, tarefa_usuario_instancia)
     self.tokens.each do |token|

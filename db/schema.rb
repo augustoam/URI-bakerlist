@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622120706) do
+ActiveRecord::Schema.define(version: 20170622122531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 20170622120706) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.integer  "endereco_id"
     t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
@@ -186,6 +187,7 @@ ActiveRecord::Schema.define(version: 20170622120706) do
   add_foreign_key "tarefas_usuarios_instancia", "usuarios_instancia"
   add_foreign_key "tipos_tarefas", "instancias"
   add_foreign_key "tokens", "usuarios"
+  add_foreign_key "usuarios", "enderecos"
   add_foreign_key "usuarios_instancia", "instancias"
   add_foreign_key "usuarios_instancia_usuarios", "usuarios"
   add_foreign_key "usuarios_instancia_usuarios", "usuarios_instancia"
