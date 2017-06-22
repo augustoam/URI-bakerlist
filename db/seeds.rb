@@ -16,6 +16,8 @@ Usuario.transaction do
   user.confirm
 end
 
+Endereco.destroy_all
+
 Cidade.destroy_all
 Cidade.transaction do
 	Cidade.create!(nome: 'Erechim', uf: 'RS')
