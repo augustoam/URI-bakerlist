@@ -15,11 +15,12 @@
         <%= @pedido.forma_pagamento.descricao %>
       </p>
 
-      <p>
-        <strong>Endereço Entrega:</strong>
-        <%= @pedido.endereco.endereco %>
-      </p>
-
+      <% if @pedido.endereco %>
+        <p>
+          <strong>Endereço Entrega:</strong>
+          <%= @pedido.endereco.endereco %> - <%= @pedido.endereco.numero %> / <%= @pedido.endereco.cep %>
+        </p>
+      <% end %>
       <p>
         <strong>Valor Total:</strong>
         <%= number_to_currency @pedido.vl_total %>

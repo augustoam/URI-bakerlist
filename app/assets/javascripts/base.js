@@ -1,6 +1,15 @@
 $(document).on('turbolinks:load', function() {
   // barra de progresso
-  
+  $('#pedido_forma_entrega').on('change', function(){
+    var forma_entrega = $(this).val();  
+    if (forma_entrega === 'Retirar na Padaria') {
+      //$('#pedido_endereco_id').attr("disabled","disabled");
+       $('#pedido_endereco_id').prop("disabled", true);
+    } else {
+      $('#pedido_endereco_id').prop("disabled", false);
+    }
+  });
+
   Turbolinks.BrowserAdapter.prototype.showProgressBarAfterDelay = function() {
     this.progressBarTimeout = setTimeout(this.showProgressBar, 100);
   };

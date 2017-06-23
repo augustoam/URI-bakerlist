@@ -9,10 +9,10 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
     if resource.persisted?
 
       # Busca o usuario criado para salvar o token do aparelho celular que encontra-se no parametro da sessão
-      usuario = Usuario.find_by(email: params[:usuario][:email]) 
-      puts 'HEEEEEY'
-      puts session[:token]
-      usuario.tokens.create!(token: session[:token])
+      if session[:token]
+        usuario = Usuario.find_by(email: params[:usuario][:email]) 
+        usuario.tokens.create!(token: session[:token])
+      end
 
       # Atribui a UsuarioInstanciaUsuario os usuarios instancia e o proprio usuario.
 

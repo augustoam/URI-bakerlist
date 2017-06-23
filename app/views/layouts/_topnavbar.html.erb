@@ -12,11 +12,13 @@
         <br>
           <span class="m-r-sm text-muted welcome-message"> <%= "Bem-vindo, #{current_usuario.email}" %></span>
         </li>
-        <li>
-          <%= link_to carrinho_home_index_path do %>
-            <i class="fa fa-shopping-cart fa-2x "></i>
-          <% end %>
-        </li>
+        <% if !current_usuario.admin? %>
+          <li>
+            <%= link_to carrinho_home_index_path do %>
+              <i class="fa fa-shopping-cart fa-2x "></i>
+            <% end %>
+          </li>
+        <% end %>
         <li class='pull-right'>
 
           <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
